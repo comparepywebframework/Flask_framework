@@ -3,6 +3,7 @@ from flask import render_template, url_for, request, redirect, Response
 from app.models import Shop
 import uuid
 from datetime import time
+import requests
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -28,3 +29,9 @@ def add_shop():
 def clear_shops_table():
     db.session.query(Shop).delete()
     return Response(status=200)
+
+
+@app.route('/external_api_call')
+def external_api_call():
+    r = requests.get('http://api.openweathermap.org/data/2.5/weather?id=3096472&APPID=39d3a15f5bdcab980c739b931b9c2863')
+    return Response(r.text)

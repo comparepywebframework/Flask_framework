@@ -3,3 +3,4 @@ python-dotenv
 flask-sqlalchemy
 flask-migrate
 mysql-connector-python
+requests
