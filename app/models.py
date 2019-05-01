@@ -11,6 +11,16 @@ class Shop(db.Model):
     open_at = db.Column(TIME())
     close_at = db.Column(TIME())
 
+    def __repr__(self):
+        return f"{__class__.__name__}, {self.name}"
+
+
+class Student(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    surname = db.Column(db.String(100))
+    date_of_birth = db.Column(db.DateTime())
+    id_number = db.Column(db.String(100))
 
     def __repr__(self):
-        return '<{} {}>'.format(__class__.__name__, self.name)
+        return f"{__class__.__name__}, {self.name}"
